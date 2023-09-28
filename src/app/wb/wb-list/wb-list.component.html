@@ -1,0 +1,17 @@
+<div class="grid">
+    <div class="col-12">
+        <form action="" [formGroup]="filterForm">
+            <p-multiSelect [options]="wbBookList" (onChange)="buildIdArray()" formControlName="filter" defaultLabel="Filter by book" optionLabel="title" optionValue="id" display="chip"></p-multiSelect>
+        </form>
+    </div>
+</div>
+
+<div class="grid" *ngIf="wbList.length > 0">
+    <app-wb-card *ngFor="let wb of wbList" [wb]="wb" class="col-3 m-5"></app-wb-card>
+</div>
+
+<div class="grid" *ngIf="wbList.length == 0">
+    <div class="col-3 m-5">
+        <p-card styleClass="bg-gray-100" header="No results found for filtered books"></p-card>
+    </div>
+</div>

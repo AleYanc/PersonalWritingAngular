@@ -1,0 +1,11 @@
+<div class="grid mt-3">
+    <div class="col-12 mb-3">
+        <h1 class="text-center">Notes</h1>
+    </div>
+    <div *ngIf="noteList.length == 0" class="col-3 text-center">
+        <p-card styleClass="bg-gray-50" header="No notes found">
+            <p-button label="Create one" routerLink="/notes/new"></p-button>
+        </p-card>
+    </div>
+    <app-note-card *ngFor="let note of noteList" [note]="note" class="col-3"></app-note-card>
+</div>

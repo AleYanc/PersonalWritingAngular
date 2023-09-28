@@ -1,0 +1,6 @@
+<p-card header="{{note.title}}" subheader="{{note.type}} - {{note.createdDate | date:'dd/MM/yyyy HH:mm'}}">
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-eye" styleClass="p-button-rounded" [style]="{'transform': 'scale(.8)'}" routerLink="/note/{{note.id}}"></p-button>
+        <p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning mr-1 ml-1" [style]="{'transform': 'scale(.8)'}" routerLink="/notes/edit/{{note.id}}"></p-button>
+    </ng-template>
+</p-card>

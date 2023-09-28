@@ -1,0 +1,25 @@
+<form action="" [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <h1 class="text-center mt-3 mb-3">{{charId == null ? 'Create new character' : 'Edit character: ' + characterToEdit?.firstName + ' ' + characterToEdit?.lastName}}</h1>
+    <div class="grid">
+            <div class="col-3 flex flex-column gap-2" *ngFor="let field of formFields">
+                <label htmlFor="{{field}}">{{field | titlecase}}</label>
+                <input type="text" pInputText name="{{field}}" [formControlName]="field"/>
+            </div>
+
+            <div class="col-3 flex flex-column gap-2" *ngFor="let field of textAreaFields">
+                <label htmlFor="{{field}}">{{field | titlecase}}</label>
+                <textarea rows="5" cols="30" pInputTextarea formControlName="{{field}}"></textarea>
+            </div>
+
+            <div class="col-3 flex flex-column gap-2">
+                <label htmlFor="books">Books {{charId == null ? '' : '(only select new books to add)'}}</label>
+                <p-listbox [multiple]="true" [metaKeySelection]="false" [options]="bookList" optionValue="id" formControlName="bookIds" optionLabel="title" [filter]="true" [listStyle]="{ 'max-height': '250px' }" [style]="{ width: '15rem' }"></p-listbox>
+            </div>
+
+            <div class="col-12" *ngFor="let richTxtField of richTextFields">
+                <label htmlFor="{{richTxtField}}">{{richTxtField | titlecase}}</label>
+                <p-editor [style]="{ height: '320px' }" formControlName="{{richTxtField}}"></p-editor>
+            </div>
+    </div>
+    <p-button label="Submit" type="submit"></p-button>
+</form>

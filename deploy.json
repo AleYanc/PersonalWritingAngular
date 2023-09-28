@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "PersonalWriting",
+            "script": "./angular.json",
+            "env": {
+                "PORT": "5454"
+            }
+        }
+    ]
+}

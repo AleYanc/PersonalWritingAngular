@@ -1,0 +1,32 @@
+<div *ngIf="notFound">
+    <p-messages severity="info">
+        <ng-template pTemplate>
+            <div class="ml-2">This chapter is yet to be made...</div>
+        </ng-template>
+    </p-messages>
+</div>
+<div *ngIf="!notFound">
+    <div class="grid" *ngIf="!loading">
+        <div class="col-12 flex flex-column align-items-center justify-content-center">
+            <h2> <i class="pi pi-book"></i> {{chapter.title}}</h2>
+            <small><em>Chapter number: {{chapter.chapterNumber}}</em></small>
+            <small><em>Created: {{chapter.created | date:'short'}}</em></small>
+        </div>
+        <div class="col-12 flex flex-column align-items-center justify-content-center">
+            <p-card header="Chapter planning" styleClass="text-left">
+                <div class="m-0" [innerHTML]="chapter.synopsys">
+                </div>
+            </p-card>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-12 flex align-items-center justify-content-center">
+            <p-button *ngFor="let chapNav of chapterNavigationList" 
+            styleClass="mr-2 ml-2" 
+            label="{{chapNav.chapMsg}}" 
+            [disabled]="chapNav.chapMsg == 'Actual chapter' ? true : false"
+            (onClick)="navigateToChapter(chapNav.id)"></p-button>
+            <!-- A implementar : Navegacion a capitulo anterior y siguiente -->
+        </div>
+    </div>
+</div>

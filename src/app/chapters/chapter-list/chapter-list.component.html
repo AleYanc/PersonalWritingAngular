@@ -1,0 +1,15 @@
+<div class="grid">
+    <div class="col-3">
+        <form action="" [formGroup]="filterForm">
+            <p-multiSelect [options]="chapterBooksList" (onChange)="buildIdArray()" formControlName="filter" defaultLabel="Filter by book" optionLabel="title" optionValue="id" display="chip"></p-multiSelect>
+        </form>
+    </div>
+</div>
+<div class="grid mt-3" *ngIf="!notFound">
+    <app-chapter-card class="col-3" *ngFor="let chapter of chapterList" [chapter]="chapter"></app-chapter-card>
+</div>
+
+<div class="grid mt-3" *ngIf="notFound">
+    <p-card header="No chapters found" [style]="{ width: '360px' }" styleClass="surface-50 col- 3">
+    </p-card>
+</div>

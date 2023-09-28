@@ -1,0 +1,45 @@
+Book:
+    - Title
+    - Cover
+    - Description
+    - Chapters
+    - Characters
+    - Worldbuilding properties (custom)
+        - WorldbuildingCategory
+        - WorldbuildingDetail
+    - Genres
+
+Character:
+    - First Name
+    - Middle name (optional)
+    - Last name
+    - Age
+    - Physical description
+        - Eye color
+        - Hair color
+        - Skin color
+        - Weight
+        - Height
+    - Good traits
+    - Bad traits
+    - Main fear
+    - Main wish
+
+Chapter:
+    - Title
+    - Content
+    - Book ID
+
+Genre: 
+    - Title
+
+WorldbuildingProperty:
+    - WorldBuildingCategory ID
+    - WorldBuildingDetail ID
+
+WorldbuildingCategory:
+    - Title
+
+WorldbuildingDetail:
+    -Content
+    -WorldbuildingCategory ID

@@ -1,0 +1,24 @@
+<form action="" [formGroup]="chapterForm" (ngSubmit)="onSubmit()">
+    <h1 class="text-center">Create new chapter</h1>
+    <div class="grid">
+        <div class="col-3 flex flex-column gap-2" >
+            <label htmlFor="title">Chapter title</label>
+            <input type="text" pInputText name="title" formControlName="title"/>
+        </div>
+        <div class="col-3 flex flex-column gap-2" >
+        </div>
+        <div class="col-3 flex flex-column gap-2" >
+        </div>
+        <div class="col-3 flex flex-column gap-2" >
+        </div>
+        <div class="col-6">
+            <label htmlFor="synopsis">Chapter synopsis</label>
+            <p-editor [style]="{ height: '320px' }" formControlName="synopsys"></p-editor>
+        </div>
+        <div class="col-3 flex flex-column gap-2">
+            <label htmlFor="synopsis">Select book</label>
+            <p-listbox [multiple]="false" [metaKeySelection]="false" [options]="bookList" optionValue="id" formControlName="bookId" optionLabel="title" [filter]="true" [listStyle]="{ 'max-height': '250px' }" [style]="{ width: '15rem' }"></p-listbox>
+        </div>
+    </div>
+    <p-button label="Submit" type="submit"></p-button>
+</form>

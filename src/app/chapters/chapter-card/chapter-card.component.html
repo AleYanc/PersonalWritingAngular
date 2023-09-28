@@ -1,0 +1,7 @@
+<p-card header="{{chapter.title}}" subheader="Book: {{chapter.bookTitle}}" [style]="{ width: '360px' }" styleClass="surface-50">
+    <strong><em><small>Chapter number: {{chapter.chapterNumber}}</small></em></strong>
+    <ng-template pTemplate="footer">
+        <p-button label="See chapter" icon="pi pi-user" styleClass="mr-2 p-button-sm" routerLink="/chapters/read/{{chapter.id}}"></p-button>
+        <p-button label="Edit chapter" icon="pi pi-pencil" styleClass="p-button-sm p-button-warning" routerLink="/chapters/edit/{{chapter.id}}"></p-button>
+    </ng-template>
+</p-card>

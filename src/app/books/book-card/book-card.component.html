@@ -1,0 +1,15 @@
+<div class="card">
+    <p-toast></p-toast>
+    <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+    <div class="card-container yellow-container">
+        <div class="block bg-cyan-100 font-bold text-center p-4 border-round mb-3">
+            <img src="{{book.coverUrl}}" alt="" width="250px" height="500px" style="object-fit: contain;">
+            <p>{{book.title}}</p>
+            <div class="actions">
+                <p-button label="Go to book" styleClass="p-button-secondary m-1" routerLink="/books/{{book.id}}"></p-button>
+                <button pButton pRipple label="Edit book" class="p-button-success m-1" routerLink="/books/edit/{{book.id}}"></button>
+                <p-button label="Delete book" styleClass="p-button-danger m-1" (click)="confirm1(book.id)"></p-button>
+            </div>
+        </div>
+    </div>
+</div>

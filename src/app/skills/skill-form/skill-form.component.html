@@ -1,0 +1,25 @@
+<form action="" [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+    <h1 class="text-center mt-3 mb-3">Create new skill</h1>
+    <div class="grid">
+        <div class="col-3 flex flex-column gap-2">
+            <label htmlFor="name">Name</label>
+            <input type="text" pInputText name="name" formControlName="name"/>
+        </div>
+
+        <div class="col-3 flex flex-column gap-2">
+            <label htmlFor="rank">Rank</label>
+            <input type="text" pInputText name="name" formControlName="rank"/>
+        </div>
+
+        <div class="col-6 flex flex-column gap-2">
+            <label htmlFor="name">Character</label>
+            <p-listbox [options]="characterList" formControlName="characterId" optionLabel="name" optionValue="id" [filter]="true" [style]="{ width: '15rem' }" [listStyle]="{ 'max-height': '250px' , 'min-height': '250px'}"></p-listbox>
+        </div>
+
+        <div class="col-6 flex flex-column gap-2">
+            <label htmlFor="name">Description</label>
+            <p-editor formControlName="description" [style]="{ height: '320px' }"></p-editor>
+        </div>
+    </div>
+    <p-button label="Submit" type="submit"></p-button>
+</form>

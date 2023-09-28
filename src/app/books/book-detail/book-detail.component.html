@@ -1,0 +1,52 @@
+<div *ngIf="loading == true">
+    <p-messages severity="info">
+        <ng-template pTemplate>
+            <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+            <div class="ml-2">Loading book</div>
+        </ng-template>
+    </p-messages>
+</div>
+
+<div *ngIf="loading == false">
+    <div class="grid">
+        <div class="col-6 bg-cyan-100 flex align-items-center justify-content-center">
+            <img style="object-fit: contain;" class="mr-5" src="{{book.coverUrl}}" alt="" height="500px" width="250px">
+            <div class="flex flex-column align-items-center justify-content-center text-center w-100">
+                <h2>{{book.title}}</h2>
+                <em><small>Action, Fantasy, Science-Fiction, Romance</small></em>
+                <div [innerHTML]="book.description"></div>
+           </div>
+        </div>
+        <div class="col-6 bg-cyan-50">
+            <div class="flex flex-column align-items-center justify-content-center">
+                <h3>Chapter count: {{book.chapters.length == 0 ? '0' : book.chapters.length}}</h3>
+                <h3>Status: <span class="bg-green-500 p-2 border-round text-white">ACTIVE</span></h3>
+                <p-button label="Characters" styleClass="m-2" routerLink="/books/{{book.id}}/characters"></p-button>
+           </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-6">
+            <h3 class="text-center">Last chapters</h3>
+            <p-scrollPanel [style]="{ width: '100%',height: '500px', display: 'flex', flexDirection: 'column'}">
+                <div class="grid">
+                    <div class="col-12 flex flex-column align-items-center justify-content-evenly">
+                        
+                    </div>
+                </div>
+            </p-scrollPanel>
+        </div>
+
+        <div class="col-6 flex flex-column align-items-center justify-content-start">
+            <h3 class="text-center mb-4">WorldBuilding</h3>
+            <p-scrollPanel [style]="{ width: '100%',height: '500px', display: 'flex', flexDirection: 'column'}">
+                <div class="grid">
+                    <div class="col-12 flex flex-column align-items-center justify-content-evenly">
+                        <p-button *ngFor="let wb of bookWbList" label="{{wb.name}}" badge="{{wb.wbCategoryName}}" (onClick)="show(wb)" styleClass="mt-2 mb-2" pRipple="true"></p-button>
+                    </div>
+                </div>
+            </p-scrollPanel>
+        </div>
+    </div>
+</div>
+
